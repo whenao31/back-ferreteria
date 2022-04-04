@@ -14,6 +14,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class FacturaService implements IServiceFactura {
@@ -64,7 +65,7 @@ public class FacturaService implements IServiceFactura {
         transaccionRepository.findAll()
                 .filter(tran -> tran.getTransaccion().equals(TransaccionEnum.PRODUCTO))
                 .flatMap(tran -> {
-                    var firstOfMap = facturaDTO.
+                    Map.Entry<String,Long> firstOfMap = facturaDTO.
                             getItems().entrySet().stream().findFirst().get();
                     if (tran.getProductoIdentificacion().equals(firstOfMap.getKey())){
                         tran.restarCantidad(firstOfMap.getValue());
