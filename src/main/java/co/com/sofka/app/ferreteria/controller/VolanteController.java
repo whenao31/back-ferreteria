@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://ferreteria-reto.web.app/")
 @RequestMapping("/volante")
 public class VolanteController {
 
